@@ -5,7 +5,7 @@ const mariadb = require('mariadb');
 
 
 module.exports = () => {
-    return testMysql();
+    return testMariadb();
 
 }
 const testMariadb = () => {
@@ -52,7 +52,7 @@ const testMysql = () => {
             user: db.user,
             password: db.password,
             database: db.name,
-            flags: '-SECURE_CONNECTION'
+            // flags: '-SECURE_CONNECTION'
         });
         connection.connect();
 
