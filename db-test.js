@@ -38,11 +38,11 @@ const testMariadb = () => {
                         //handle error
                         console.log(err);
                         conn.end();
-                        reject({ msg: 'Unable to connect to the database:', err });
+                        reject({ msg: 'Unable to connect to the database1:', err });
                     })
 
             }).catch(err => {
-                reject({ msg: 'Unable to connect to the database:', err });
+                reject({ msg: 'Unable to connect to the database2:', err });
             });
     });
 }
