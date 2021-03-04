@@ -5,8 +5,36 @@ const mariadb = require('mariadb');
 
 
 module.exports = () => {
-    return testMariadb();
+    return testMariadb2();
 
+}
+const testMariadb2 = () => {
+    return new Promise(async(resolve, reject) => {
+
+        mariadb.createConnection({
+
+            database: db.name,
+            host: db.host,
+            port: db.port,
+            user: db.user,
+            password: db.password,
+            connectionLimit: 5,
+
+        }).then((conn) => {
+            conn.query("SELECT 1 as val").then(res => {
+
+                resolve("good")
+            }).catch(err => {
+                reject({ msg: 'Unable to connect to the database:', err });
+                conn.end();
+                return;
+            })
+        }).catch(err => {
+            reject({ msg: 'Unable to connect to the database:', err });
+            conn.end();
+            return;
+        })
+    });
 }
 const testMariadb = () => {
     return new Promise(async(resolve, reject) => {
