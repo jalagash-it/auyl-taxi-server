@@ -17,7 +17,6 @@ const testMariadb = () => {
             user: db.user,
             password: db.password,
             connectionLimit: 5,
-            flags: '-SECURE_CONNECTION'
         });
         pool.getConnection()
             .then(conn => {
