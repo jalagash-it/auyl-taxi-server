@@ -7,7 +7,7 @@ app.get('/', (req, res) => {
     testDb()
         .then(testResult =>
             res.send(`Hello World!<hr>Db test: ${testResult}`))
-        .catch(err => res.send(err));
+        .catch((err) => res.send({ err }));
 })
 
 app.listen(port, () => {

@@ -12,7 +12,7 @@ module.exports = () => {
             await sequelize.authenticate();
             resolve('Connection has been established successfully')
         } catch (error) {
-            reject('Unable to connect to the database:', error);
+            reject({ msg: 'Unable to connect to the database:', error });
         }
     });
 
