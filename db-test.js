@@ -5,7 +5,7 @@ const mariadb = require('mariadb');
 
 
 module.exports = () => {
-    return testMariadb();
+    return testMysql();
 
 }
 const testMariadb = () => {
@@ -16,7 +16,8 @@ const testMariadb = () => {
             port: db.port,
             user: db.user,
             password: db.password,
-            connectionLimit: 5
+            connectionLimit: 5,
+            flags: '-SECURE_CONNECTION'
         });
         pool.getConnection()
             .then(conn => {
@@ -51,7 +52,8 @@ const testMysql = () => {
             host: db.host,
             user: db.user,
             password: db.password,
-            database: db.name
+            database: db.name,
+            flags: '-SECURE_CONNECTION'
         });
         connection.connect();
 
