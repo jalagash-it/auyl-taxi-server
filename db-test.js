@@ -11,6 +11,7 @@ module.exports = () => {
 const testMariadb = () => {
     return new Promise(async(resolve, reject) => {
         const pool = mariadb.createPool({
+            debug: true,
             database: db.name,
             host: db.host,
             port: db.port,
@@ -48,6 +49,7 @@ const testMariadb = () => {
 const testMysql = () => {
     return new Promise(async(resolve, reject) => {
         var connection = mysql.createConnection({
+            debug: true,
             host: db.host,
             user: db.user,
             password: db.password,
