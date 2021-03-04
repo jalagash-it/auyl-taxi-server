@@ -21,9 +21,9 @@ const testMariadb2 = () => {
             connectionLimit: 5,
 
         }).then((conn) => {
-            conn.query("SELECT 1 as val").then(res => {
+            conn.query("SELECT * from myTable").then(res => {
 
-                resolve("good")
+                resolve(res);
             }).catch(err => {
                 reject({ msg: 'Unable to connect to the database:', err });
                 conn.end();
