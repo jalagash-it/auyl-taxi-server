@@ -1,0 +1,30 @@
+{
+    "name": "auyl-taxi-server",
+    "version": "1.0.0",
+    "description": "auyl taxi server",
+    "main": "index.js",
+    "scripts": {
+        "dev": "node index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/zhalagash-it/auyl-taxi-server.git"
+    },
+    "keywords": [
+        "taxi",
+        "taxi-server",
+        "zhalagash-it",
+        "nodejs-server"
+    ],
+    "author": "zhalagash-it, oljazzz, karnurmax",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/zhalagash-it/auyl-taxi-server/issues"
+    },
+    "homepage": "https://github.com/zhalagash-it/auyl-taxi-server#readme",
+    "dependencies": {
+        "express": "^4.17.1",
+        "socket.io": "^3.1.2"
+    }
+}
