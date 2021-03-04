@@ -3,7 +3,7 @@ const app = express()
 const port = 3000
 
 const testDb = require('./db-test');
-app.get('/', async(req, res) => {
+app.get('/', (req, res) => {
     testDb()
         .then(testResult =>
             res.send(`Hello World!<hr>Db test: ${testResult}`))

@@ -6,7 +6,7 @@ const sequelize = new Sequelize(conf.db.name, conf.db.user, conf.db.password, {
     dialect: 'mysql'
 });
 
-module.exports = async() => {
+module.exports = () => {
     return new Promise(async(resolve, reject) => {
         try {
             await sequelize.authenticate();
