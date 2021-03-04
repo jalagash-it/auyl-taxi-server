@@ -2,8 +2,8 @@ const { Sequelize } = require('sequelize');
 const conf = require('./env/config');
 
 const sequelize = new Sequelize(conf.db.name, conf.db.user, conf.db.password, {
-    host: 'localhost',
-    dialect: 'mysql'
+    host: conf.db.host,
+    dialect: conf.db.dialect
 });
 
 module.exports = () => {
