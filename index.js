@@ -4,8 +4,10 @@ const port = 3000
 
 const testDb = require('./db-test');
 app.get('/', async(req, res) => {
-    const testResult = await testDb();
-    res.send(`Hello World!<hr>Db test: ${testResult}`);
+    testDb()
+        .then(testResult =>
+            res.send(`Hello World!<hr>Db test: ${testResult}`))
+        .catch(err => res.send(err));
 })
 
 app.listen(port, () => {
