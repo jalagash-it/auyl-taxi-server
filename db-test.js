@@ -31,15 +31,17 @@ const testMariadb = () => {
                     .then((res) => {
                         console.log(res); // { affectedRows: 1, insertId: 1, warningStatus: 0 }
                         conn.end();
+                        resolve("good");
                     })
                     .catch(err => {
                         //handle error
                         console.log(err);
                         conn.end();
+                        reject({ msg: 'Unable to connect to the database:', err });
                     })
 
             }).catch(err => {
-                //not connected
+                reject({ msg: 'Unable to connect to the database:', err });
             });
     });
 }
