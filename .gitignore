@@ -1,3 +1,4 @@
 /node_modules
 /env/prod.js
-/env/dev.js
+/app/config/dev.js
+/app/config/prod.js
