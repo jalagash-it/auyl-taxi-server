@@ -1,15 +1,37 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const db = require("./app/models");
 
-const testDb = require('./db-test');
-app.get('/', (req, res) => {
-    testDb()
-        .then(testResult =>
-            res.send(`Hello World!<hr>Db test: ${testResult}`))
-        .catch((err) => res.send({ err }));
-})
+const app = express();
 
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
-})
+
+const corsOptions = {
+    origin: "http://localhost:8081"
+};
+
+app.use(cors(corsOptions));
+
+// parse requests of content-type - application/json
+app.use(bodyParser.json());
+
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// simple route
+app.get("/", (req, res) => {
+    res.json({ message: "Welcome to auyl-taxi application." });
+});
+
+require("./app/routes/tutorial.routes")(app);
+
+db.sequelize.sync();
+// db.sequelize.sync({ force: true }).then(() => {
+//     console.log("Drop and re-sync db.");
+// });
+
+// set port, listen for requests
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}.`);
+});
