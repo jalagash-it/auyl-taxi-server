@@ -1,5 +1,5 @@
 const { db } = require('./env/config');
-var mysql = require('mysql');
+const mysql = require('mysql');
 
 const mariadb = require('mariadb');
 
@@ -27,12 +27,12 @@ const testMariadb2 = () => {
             }).catch(err => {
                 reject({ msg: 'Unable to connect to the database:', err });
                 conn.end();
-                return;
+
             })
         }).catch(err => {
             reject({ msg: 'Unable to connect to the database:', err });
             conn.end();
-            return;
+
         })
     });
 }
